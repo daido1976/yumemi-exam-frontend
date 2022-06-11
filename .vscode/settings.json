@@ -1,6 +1,0 @@
-{
-  "tailwindCSS.includeLanguages": {
-    "plaintext": "javascript"
-  },
-  "css.lint.unknownAtRules": "ignore"
-}
