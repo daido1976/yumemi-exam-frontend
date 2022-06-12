@@ -1,16 +1,9 @@
-import { useEffect } from "react";
 import classes from "./App.module.css";
-import { getPopulationsBy, getPrefectures } from "./client";
+import { usePrefectures } from "./hooks/usePrefectures";
 
 function App() {
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await getPopulationsBy(1);
-      console.log("res", res);
-    };
-
-    fetchData();
-  }, []);
+  const { prefectures, loading, error } = usePrefectures();
+  console.log({ prefectures, loading, error });
 
   return (
     <div className="App">
