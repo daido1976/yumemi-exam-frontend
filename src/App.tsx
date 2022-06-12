@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import classes from "./App.module.css";
-import { getPrefectures } from "./client";
+import { getPopulationsBy, getPrefectures } from "./client";
 
 function App() {
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getPrefectures();
+      const res = await getPopulationsBy(1);
       console.log("res", res);
     };
 
