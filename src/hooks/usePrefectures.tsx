@@ -5,6 +5,7 @@ import { Prefecture } from "../types";
 export const usePrefectures = () => {
   const [prefectures, setPrefectures] = useState<Prefecture[]>([]);
   const [loading, setLoading] = useState(false);
+  // TODO: エラーの型ちゃんとする
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {

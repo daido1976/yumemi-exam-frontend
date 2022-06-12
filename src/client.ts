@@ -22,6 +22,8 @@ export const getPrefectures = (): Promise<Prefecture[]> =>
     },
   })
     .then((res) => res.json())
+    // TODO: エラーハンドリングする
+    // https://opendata.resas-portal.go.jp/docs/api/v1/detail/index.html
     .then((res: PrefecturesApiResponse) => res.result);
 
 export const getPopulationsBy = (
@@ -38,4 +40,6 @@ export const getPopulationsBy = (
     }
   )
     .then((res) => res.json())
+    // TODO: エラーハンドリングする
+    // https://opendata.resas-portal.go.jp/docs/api/v1/detail/index.html
     .then((res: PopulationApiResponse) => res.result.data[0].data);
