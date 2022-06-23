@@ -9,6 +9,7 @@ export const usePrefectures = () => {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
+    setLoading(true);
     getPrefectures()
       .then((res) => {
         setPrefectures(res);
