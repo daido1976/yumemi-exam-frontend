@@ -10,8 +10,8 @@ export const Checkbox: React.FC<Props> = ({ name, onChange, children }) => {
   return (
     <>
       <label>
-        {children}
         <input type="checkbox" name={name} onChange={onChange} />
+        {children}
       </label>
     </>
   );

@@ -1,7 +1,8 @@
 import React from "react";
-import { Prefecture } from "../types";
-import { Checkbox } from "./Checkbox";
-import { useCheckboxes } from "../hooks/useCheckboxes";
+import classes from "./index.module.css";
+import { Prefecture } from "../../types";
+import { Checkbox } from "../Chekbox.tsx";
+import { useCheckboxes } from "../../hooks/useCheckboxes";
 
 type Props = {
   prefectures: Prefecture[];
@@ -13,8 +14,8 @@ export const PrefectureList: React.FC<Props> = ({ prefectures, loading }) => {
 
   return (
     <>
-      <h2>都道府県</h2>
-      <div>
+      <h3>都道府県</h3>
+      <div className={classes.container}>
         {loading
           ? "loading..."
           : prefectures.map((prefecture, i) => {
