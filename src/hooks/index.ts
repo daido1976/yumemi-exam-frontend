@@ -1,3 +1,3 @@
 export { useCheckboxes } from "./useCheckboxes";
 export { usePrefectures } from "./usePrefectures";
-export { usePopulations } from "./usePopulations";
+export { usePopulationList } from "./usePopulationList";
