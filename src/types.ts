@@ -8,6 +8,7 @@ export type PopulationPerYear = {
   value: number;
 };
 
-export type PrefecturePopulation = Prefecture & {
+export type PrefecturePopulation = {
+  prefCode: number;
   populations: PopulationPerYear[];
 };
