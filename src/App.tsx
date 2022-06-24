@@ -1,8 +1,9 @@
-import { usePrefectures } from "./hooks/usePrefectures";
+import { usePrefectures, useCheckboxes } from "./hooks";
 import { PrefectureList } from "./components/PrefectureList";
 
 function App() {
   const { prefectures, loading } = usePrefectures();
+  const { checkedNames, handleChange } = useCheckboxes();
 
   return (
     <div className="App">
@@ -10,6 +11,7 @@ function App() {
       <PrefectureList
         prefectures={prefectures}
         loading={loading}
+        onCheckedChange={handleChange}
       ></PrefectureList>
     </div>
   );

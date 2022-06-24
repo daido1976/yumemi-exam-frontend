@@ -2,16 +2,18 @@ import React from "react";
 import classes from "./index.module.css";
 import { Prefecture } from "../../types";
 import { Checkbox } from "../Chekbox.tsx";
-import { useCheckboxes } from "../../hooks/useCheckboxes";
 
 type Props = {
   prefectures: Prefecture[];
   loading: boolean;
+  onCheckedChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-export const PrefectureList: React.FC<Props> = ({ prefectures, loading }) => {
-  const { checkedList, setChecked } = useCheckboxes();
-
+export const PrefectureList: React.FC<Props> = ({
+  prefectures,
+  loading,
+  onCheckedChange,
+}) => {
   return (
     <>
       <h3>都道府県</h3>
@@ -23,7 +25,7 @@ export const PrefectureList: React.FC<Props> = ({ prefectures, loading }) => {
                 <div key={i}>
                   <Checkbox
                     name={prefecture.prefCode.toString()}
-                    onChange={setChecked}
+                    onChange={onCheckedChange}
                   >
                     {prefecture.prefName}
                   </Checkbox>
