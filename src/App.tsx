@@ -22,7 +22,6 @@ function App() {
         onCheckedChange={handleChange}
       ></PrefectureList>
       <Chart populationList={populationList} names={checkedNames}></Chart>
-      <div>{JSON.stringify(populationList)}</div>
     </div>
   );
 }

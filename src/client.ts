@@ -13,6 +13,7 @@ type PopulationApiResponse = {
   };
 };
 
+// https://opendata.resas-portal.go.jp/docs/api/v1/prefectures.html
 export const getPrefectures = (): Promise<Prefecture[]> =>
   fetch(`${ENDPOINT}/api/v1/prefectures`, {
     method: "GET",
@@ -26,6 +27,7 @@ export const getPrefectures = (): Promise<Prefecture[]> =>
     // https://opendata.resas-portal.go.jp/docs/api/v1/detail/index.html
     .then((res: PrefecturesApiResponse) => res.result);
 
+// https://opendata.resas-portal.go.jp/docs/api/v1/population/composition/perYear.html
 export const getPopulationsBy = (
   prefCode: number
 ): Promise<PopulationPerYear[]> =>

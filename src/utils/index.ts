@@ -6,6 +6,7 @@ type PopulationForChart = {
   [key: string]: number;
 };
 
+// TODO: リファクタリングする
 export const convertForChart = (
   pl: PrefecturePopulation[]
 ): PopulationForChart[] => {
