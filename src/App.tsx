@@ -1,5 +1,6 @@
 import { usePrefectures, usePopulationList, useCheckboxes } from "./hooks";
 import { PrefectureList } from "./components/PrefectureList";
+import { Chart } from "./components/Chart";
 import { useMemo } from "react";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         loading={loading}
         onCheckedChange={handleChange}
       ></PrefectureList>
+      <Chart populationList={populationList}></Chart>
       <div>{JSON.stringify(populationList)}</div>
     </div>
   );
