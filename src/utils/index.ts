@@ -20,7 +20,7 @@ export const convertForChart = (
   const fm = pl.flatMap((p) =>
     p.populations.map(({ year, value }) => ({
       year,
-      [p.prefCode.toString()]: value,
+      [p.prefName]: value,
     }))
   );
 

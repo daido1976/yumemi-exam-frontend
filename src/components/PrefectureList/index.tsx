@@ -24,6 +24,7 @@ export const PrefectureList: React.FC<Props> = ({
               return (
                 <div key={i}>
                   <Checkbox
+                    // TODO: prefCode じゃなくて prefName 渡した方がいいかも
                     name={prefecture.prefCode.toString()}
                     onChange={onCheckedChange}
                   >

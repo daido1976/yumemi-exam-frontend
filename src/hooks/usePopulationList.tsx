@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { getPopulationsBy } from "../client";
-import { PrefecturePopulation } from "../types";
+import { PrefecturePopulation, Prefecture } from "../types";
 
-export const usePopulationList = (prefCodes: number[]) => {
+export const usePopulationList = (prefectures: Prefecture[]) => {
   const [populationList, setPopulationList] = useState<PrefecturePopulation[]>(
     []
   );
@@ -10,18 +10,26 @@ export const usePopulationList = (prefCodes: number[]) => {
   // TODO: エラーの型ちゃんとする
   const [error, setError] = useState<Error | null>(null);
 
-  const cachedCodes = populationList.map((population) => population.prefCode);
+  const cachedPrefCodes = populationList.map(
+    (population) => population.prefCode
+  );
   // NOTE: O(N^2)なので注意
-  const diffCodes = prefCodes.filter((x) => !cachedCodes.includes(x));
+  const diffPrefs = prefectures.filter(
+    (x) => !cachedPrefCodes.includes(x.prefCode)
+  );
 
   useEffect(() => {
     setLoading(true);
-    diffCodes.forEach((code) => {
-      getPopulationsBy(code)
+    diffPrefs.forEach((pref) => {
+      getPopulationsBy(pref.prefCode)
         .then((res) => {
           setPopulationList((prev) => [
             ...prev,
-            { prefCode: code, populations: res },
+            {
+              prefCode: pref.prefCode,
+              prefName: pref.prefName,
+              populations: res,
+            },
           ]);
         })
         .catch((error) => {
@@ -30,7 +38,7 @@ export const usePopulationList = (prefCodes: number[]) => {
         });
     });
     setLoading(false);
-  }, [diffCodes, prefCodes]);
+  }, [diffPrefs]);
 
   return { populationList, loading, error };
 };
