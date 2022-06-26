@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { convertForChart } from ".";
 
-describe("convert", () => {
+describe("convertForChart", () => {
   it("converts to a format suitable as a data source for chart", () => {
     const from = [
       {
