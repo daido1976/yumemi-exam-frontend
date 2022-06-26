@@ -18,6 +18,9 @@ type Props = {
   lineKeys: string[];
 };
 
+// ref. https://mybrandnewlogo.com/ja/color-palette-generator
+const lineColors = ["#ada279", "#c3c096", "#465f86", "#558d9e", "#9bc2c2"];
+
 export const Chart: React.FC<Props> = ({ populationList, lineKeys }) => {
   const data = convertForChart(populationList);
   return (
@@ -30,8 +33,15 @@ export const Chart: React.FC<Props> = ({ populationList, lineKeys }) => {
             data={data}
             margin={{ top: 30, right: 5, left: 5, bottom: 5 }}
           >
-            {lineKeys.map((key) => (
-              <Line key={key} type="monotone" dataKey={key} stroke="#8884d8" />
+            {lineKeys.map((key, i) => (
+              <Line
+                key={key}
+                type="monotone"
+                dataKey={key}
+                // ref. https://stackoverflow.com/questions/65636364/how-do-i-change-the-color-of-each-bar-in-recharts#comment122553062_65636948
+                stroke={lineColors[i % lineColors.length]}
+                dot={false}
+              />
             ))}
             <CartesianGrid stroke="#ccc" />
             <XAxis
