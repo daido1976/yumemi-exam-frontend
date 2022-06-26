@@ -28,7 +28,7 @@ function App() {
       ></PrefectureList>
       <Chart
         populationList={populationList}
-        names={selectedPrefectures.map((p) => p.prefName)}
+        lineKeys={selectedPrefectures.map((p) => p.prefName)}
       ></Chart>
     </div>
   );

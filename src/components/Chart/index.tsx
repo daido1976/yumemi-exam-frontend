@@ -15,25 +15,29 @@ import { convertForChart } from "../../utils";
 
 type Props = {
   populationList: PrefecturePopulation[];
-  names: string[];
+  lineKeys: string[];
 };
 
-export const Chart: React.FC<Props> = ({ populationList, names }) => {
+export const Chart: React.FC<Props> = ({ populationList, lineKeys }) => {
   const data = convertForChart(populationList);
   return (
     <div className={classes.container}>
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data}>
-          {names.map((name) => (
-            <Line key={name} type="monotone" dataKey={name} stroke="#8884d8" />
-          ))}
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="year" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-        </LineChart>
-      </ResponsiveContainer>
+      {data.length === 0 || lineKeys.length === 0 ? (
+        "都道府県を選択してください。"
+      ) : (
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={data}>
+            {lineKeys.map((key) => (
+              <Line key={key} type="monotone" dataKey={key} stroke="#8884d8" />
+            ))}
+            <CartesianGrid stroke="#ccc" />
+            <XAxis dataKey="year" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+          </LineChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 };
