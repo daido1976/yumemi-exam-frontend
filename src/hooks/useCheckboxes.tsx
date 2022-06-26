@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
 export const useCheckboxes = () => {
-  const [checkedNames, setCheckedNames] = useState<string[]>([]);
+  const [checkedValues, setCheckedValues] = useState<string[]>([]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
+  const handleCheckedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target;
 
     if (checked) {
-      setCheckedNames((prev) => [...prev, name]);
+      setCheckedValues((prev) => [...prev, value]);
     } else {
-      setCheckedNames((prev) => prev.filter((x) => x !== name));
+      setCheckedValues((prev) => prev.filter((x) => x !== value));
     }
   };
 
-  return { checkedNames, handleChange };
+  return { checkedValues, handleCheckedChange };
 };

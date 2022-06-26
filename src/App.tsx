@@ -5,16 +5,16 @@ import { useMemo } from "react";
 
 function App() {
   const { prefectures, loading } = usePrefectures();
-  const { checkedNames, handleChange } = useCheckboxes();
+  const { checkedValues, handleCheckedChange } = useCheckboxes();
   // NOTE: メモ化しないと usePopulationList が無限ループになってしまう
   const selectedPrefectures = useMemo(() => {
-    return checkedNames.map((code) => ({
+    return checkedValues.map((code) => ({
       prefCode: parseInt(code),
       // TODO: リファクタリングする
       prefName:
         prefectures.find((p) => p.prefCode === parseInt(code))?.prefName || "",
     }));
-  }, [checkedNames, prefectures]);
+  }, [checkedValues, prefectures]);
 
   const { populationList } = usePopulationList(selectedPrefectures);
 
@@ -24,7 +24,7 @@ function App() {
       <PrefectureList
         prefectures={prefectures}
         loading={loading}
-        onCheckedChange={handleChange}
+        onCheckedChange={handleCheckedChange}
       ></PrefectureList>
       <Chart
         populationList={populationList}
