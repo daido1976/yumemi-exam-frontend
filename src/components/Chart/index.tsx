@@ -46,6 +46,7 @@ export const Chart: React.FC<Props> = ({ populationList, lineKeys }) => {
             <CartesianGrid stroke="#ccc" />
             <XAxis
               dataKey="year"
+              // TODO: スマホで見ると Legend と被るのでどうにかする
               label={{ value: "年度", position: "insideBottomRight", dy: 15 }}
             />
             <YAxis
