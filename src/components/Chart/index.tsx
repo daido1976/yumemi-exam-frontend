@@ -26,13 +26,25 @@ export const Chart: React.FC<Props> = ({ populationList, lineKeys }) => {
         "都道府県を選択してください。"
       ) : (
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data}>
+          <LineChart
+            data={data}
+            margin={{ top: 30, right: 5, left: 5, bottom: 5 }}
+          >
             {lineKeys.map((key) => (
               <Line key={key} type="monotone" dataKey={key} stroke="#8884d8" />
             ))}
             <CartesianGrid stroke="#ccc" />
-            <XAxis dataKey="year" />
-            <YAxis />
+            <XAxis
+              dataKey="year"
+              label={{ value: "年度", position: "insideBottomRight", dy: 15 }}
+            />
+            <YAxis
+              label={{
+                value: "総人口",
+                position: "top",
+                dy: -10,
+              }}
+            />
             <Tooltip />
             <Legend />
           </LineChart>
