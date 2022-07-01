@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "test:ci": "eslint . && tsc --noEmit && vitest"
+    "ci": "eslint . && tsc --noEmit && vitest"
   },
   "dependencies": {
     "react": "^18.0.0",
