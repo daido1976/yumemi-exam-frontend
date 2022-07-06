@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./index.module.css";
 import { Prefecture } from "../../types";
-import { Checkbox } from "../Chekbox.tsx";
+import { Checkbox } from "../Chekbox";
 
 type Props = {
   prefectures: Prefecture[];

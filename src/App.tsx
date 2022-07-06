@@ -1,6 +1,7 @@
 import { usePrefectures, usePopulationList, useCheckboxes } from "./hooks";
 import { PrefectureList } from "./components/PrefectureList";
 import { Chart } from "./components/Chart";
+import { Header } from "./components/Header";
 
 const App = () => {
   const { prefectures, loading } = usePrefectures();
@@ -15,7 +16,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>都道府県別の総人口推移グラフ</h1>
+      <Header />
       <PrefectureList
         prefectures={prefectures}
         loading={loading}
