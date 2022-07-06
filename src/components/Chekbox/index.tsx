@@ -14,11 +14,9 @@ export const Checkbox: React.FC<Props> = ({
   children,
 }) => {
   return (
-    <>
-      <label>
-        <input type="checkbox" name={name} value={value} onChange={onChange} />
-        {children}
-      </label>
-    </>
+    <label>
+      <input type="checkbox" name={name} value={value} onChange={onChange} />
+      {children}
+    </label>
   );
 };

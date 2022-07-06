@@ -15,7 +15,7 @@ const App = () => {
   const { populationList } = usePopulationList(selectedPrefectures);
 
   return (
-    <div className="App">
+    <>
       <Header />
       <PrefectureList
         prefectures={prefectures}
@@ -26,7 +26,7 @@ const App = () => {
         populationList={populationList}
         lineKeys={selectedPrefectures.map((p) => p.prefName)}
       ></Chart>
-    </div>
+    </>
   );
 };
 
